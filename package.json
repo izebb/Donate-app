@@ -1,0 +1,28 @@
+{
+  "name": "donate-app",
+  "version": "1.0.0",
+  "description": "Microapp test question- Donate application using Pay on API",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/izebb/Donate-app.git"
+  },
+  "keywords": [
+    "Micro-app",
+    "interview-question",
+    "Pay-on",
+    "API"
+  ],
+  "author": "Gabriel Izebhigie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/izebb/Donate-app/issues"
+  },
+  "homepage": "https://github.com/izebb/Donate-app#readme"
+}
