@@ -29,7 +29,9 @@ gulp.task('sass', () => {
 // Angular template files
 gulp.task('templateCache', () => {
     return gulp.src(config.scripts.templateCache)
-        .pipe(templateCache())
+        .pipe(templateCache({
+            standalone:true
+        }))
         .pipe(gulp.dest(config.scripts.templateCacheDest) );
 });
 
