@@ -18,6 +18,7 @@ export default {
     watch: {
         js: 'src/js/**/*.js',
         sass: 'src/sass/**/*.scss',
+        template:'src/js/modules/**/*.html',
         html: 'public/*.html'
     },
     sourceDir: './src/',

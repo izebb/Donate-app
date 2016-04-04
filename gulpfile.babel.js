@@ -63,8 +63,8 @@ gulp.task('js', ['templateCache'], () => {
 
 // Watch for changes and do browser reload
 gulp.task('watch', ['js', 'sass'], () => {
-    gulp.watch([config.watch.js, config.watch.sass], ['js', 'sass'], browserSync.reload);
-    gulp.watch([config.watch.html]).on('change', browserSync.reload);
+    gulp.watch([config.watch.js, config.watch.sass, config.watch.template], ['templateCache', 'js', 'sass'], browserSync.reload);
+    gulp.watch([config.watch.html]).on('change', browserSync.reload); 
 
 });
 
