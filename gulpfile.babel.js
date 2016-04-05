@@ -10,7 +10,6 @@ import buffer               from  'vinyl-buffer';
 import rename               from  'gulp-rename';
 import uglify               from  'gulp-uglify';
 import templateCache        from 'gulp-angular-templatecache';
-import ngAnnotate           from 'gulp-ng-annotate';
 
 const browserSync = browser_sync.create();
 
@@ -52,8 +51,9 @@ gulp.task('js', ['templateCache'], () => {
         .bundle()
         .pipe(source((config.scripts.main)))
         .pipe(buffer())
-        .pipe(ngAnnotate())
-        .pipe(uglify())
+        .pipe(uglify({
+            mangle: false
+        }))
         .pipe(rename('app.js'))
         .pipe(gulp.dest(config.scripts.dest))
         .on('error', (err) => {

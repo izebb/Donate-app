@@ -12,7 +12,7 @@ export default {
         test: 'test/**/*.js',
         entryFile: 'src/js/app.js',
         templateCache:'src/js/modules/**/*.html',
-        templateCacheDest:'src/js/templateCache',
+        templateCacheDest:'src/js/modules/templateCache',
         main: 'app.js'
     },
     watch: {
