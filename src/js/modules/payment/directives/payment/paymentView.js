@@ -1,4 +1,3 @@
-'use strict'
 import paymentViewController from "../controllers/paymentViewController.js";
 
 

@@ -1,5 +1,3 @@
-'use strict';
-
 import params from "./params";
 
 function payment($http) {

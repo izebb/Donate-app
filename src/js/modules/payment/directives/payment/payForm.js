@@ -1,17 +1,16 @@
-'use strict'
 import paymentFormViewController from "../controllers/paymentFormViewController.js";
 
 
-function payForm(){
+function payForm() {
 
     return {
         replace: true,
         restrict: 'AE',
         templateUrl: 'payment/templates/pay-form.html',
         controller: ['$scope', 'payment', paymentFormViewController]
-    }; 
-    
-   
+    };
+
+
 }
 
 export default payForm;
