@@ -11,7 +11,7 @@ export function numericOnly() {
 
     return {
         restrict: 'A',
-        link: (scope, element) => {
+        link(scope, element) {
             element.bind('keypress', restrictNumeric);
         }
     };

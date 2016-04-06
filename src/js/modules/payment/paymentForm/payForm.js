@@ -1,4 +1,4 @@
-import paymentFormViewController from "../controllers/paymentFormViewController.js";
+import paymentFormViewController from "./controllers/paymentFormViewController.js";
 
 
 function payForm() {
@@ -6,7 +6,7 @@ function payForm() {
     return {
         replace: true,
         restrict: 'AE',
-        templateUrl: 'payment/templates/pay-form.html',
+        templateUrl: 'payment/paymentForm/templates/pay-form.html',
         controller: ['$scope', 'payment', paymentFormViewController]
     };
 

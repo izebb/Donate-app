@@ -1,0 +1,21 @@
+<div>
+    <form name="PaymentForm" novalidate>
+       <div>
+           <card-number value="card.number" label="Card Number" id="CardNumber">
+       </div>  
+       <div>
+             <card-expiry value="card.expiry"  label="Card Expiry" id="CardExpiry"></card-expiry>
+       </div>
+       
+       <div>
+           <card-cvv value="card.cvv" label="Card Cvv" id="CardCvv"></card-cvv>
+       </div>
+       <div>
+           <label>CardHolder</label>
+           <input type="text" ng-model="card.holder"/>
+       </div>
+       <div>
+           <button type="submit" ng-click="pay()">Pay Now </button>
+       </div>
+    </form>
+</div>

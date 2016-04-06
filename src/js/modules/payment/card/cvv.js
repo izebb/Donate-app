@@ -1,15 +1,10 @@
 import {
-    cardType,
-    formatCardNumber,
-    formatExpiry,
-    validateCardNumber,
-    validateExpiry,
     validateCVC } from 'stripe.js';
 
-export function cardcvvFormatter() {
+export function cardCvvFormatter() {
     'use strict';
     let restrictCvc = function(e) {
-        const  elm = angular.element(e.currentTarget);
+        const elm = angular.element(e.currentTarget);
         let digit, val;
         digit = String.fromCharCode(e.which);
         if (!/^\d+$/.test(digit)) { return; }
@@ -19,7 +14,7 @@ export function cardcvvFormatter() {
     };
 
     return {
-        link: (scope, element) => {
+        link(scope, element) {
             element.bind('keypress', restrictCvc);
         }
     };
@@ -30,7 +25,7 @@ export function cardcvvFormatter() {
 export function cvvValidator() {
     return {
         require: '^ngModel',
-        link: function(scope, elm, attrs, ngModelCtrl) {
+        link(scope, elm, attrs, ngModelCtrl) {
             function validate(value) {
                 let valid = value ? validateCVC(value) : false;
                 ngModelCtrl.$setValidity('cardCvc', valid);
@@ -48,6 +43,18 @@ export function cvvValidator() {
     };
 }
 
+export function cardCvv() {
+    return {
+        templateUrl: "payment/card/templates/cvv.html",
+        scope: {
+            value: "=",
+            id: "@",
+            label: "@",
+            
+
+        }
+    }
+}
 
 
 
