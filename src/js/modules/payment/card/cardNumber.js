@@ -6,8 +6,6 @@ export function cardNumberFormatter() {
     let cardFormatter = function(e) {
         const elm = angular.element(e.currentTarget);
         let digit, val = elm.val();
-        digit = String.fromCharCode(e.which);
-        if (!/^\d+$/.test(digit)) { return; }
         elm.val(formatCardNumber(val) )
     };
 
@@ -31,11 +29,11 @@ export function cardNumberValidator() {
             }
 
             ngModelCtrl.$parsers.unshift(function(value) {
-                return validateCardNumber(value) ?formatCardNumber(value) : undefined;
+                return validate(value)?formatCardNumber(value) : undefined;
             });
 
             ngModelCtrl.$formatters.unshift(function(value) {
-                validateCardNumber(value);
+                validate(value);
             });
         }
     };

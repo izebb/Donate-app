@@ -8,7 +8,10 @@ export function expiryValidator() {
         require: '^ngModel',
         link(scope, elm, attrs, ngModelCtrl) {
             function validate(value) {
-                let valid = value ? validateExpiry(value) : false;
+                let [month, year] = value ?
+                    value.match(/^\D*(\d{1,2})(\D+)?(\d{1,4})?/) ?
+                        value.split('/') : [0, 0] : [0, 0];
+                let valid = value ? validateExpiry(month, year) : false;
                 ngModelCtrl.$setValidity('validateExpiry', valid);
                 return valid;
             }
@@ -18,7 +21,7 @@ export function expiryValidator() {
             });
 
             ngModelCtrl.$formatters.unshift(function(value) {
-                validateExpiry(value);
+                validate(value);
             });
         }
     };
@@ -31,7 +34,7 @@ export function cardExpiryFormatter() {
         let digit, val = elm.val();
         digit = String.fromCharCode(e.which);
         if (!/^\d+$/.test(digit)) { return; }
-        elm.val(formatExpiry(val) )
+        elm.val(formatExpiry(val))
     };
 
     return {
@@ -40,7 +43,6 @@ export function cardExpiryFormatter() {
         }
     };
 }
-
 
 export function cardExpiry() {
     return {
