@@ -6,12 +6,13 @@ export function cardNumberFormatter() {
     let cardFormatter = function(e) {
         const elm = angular.element(e.currentTarget);
         let digit, val = elm.val();
-        elm.val(formatCardNumber(val) )
+        elm.val(formatCardNumber(val));
     };
 
     return {
         link(scope, element) {
             element.bind('keypress', cardFormatter);
+            element.bind('paste', cardFormatter);
         }
     };
 }
@@ -29,7 +30,7 @@ export function cardNumberValidator() {
             }
 
             ngModelCtrl.$parsers.unshift(function(value) {
-                return validate(value)?formatCardNumber(value) : undefined;
+                return validate(value) ? formatCardNumber(value) : undefined;
             });
 
             ngModelCtrl.$formatters.unshift(function(value) {
@@ -46,9 +47,9 @@ export function cardNumber() {
             value: "=",
             id: "@",
             label: "@",
-
         }
-    }
+        
+    };
 }
 
 

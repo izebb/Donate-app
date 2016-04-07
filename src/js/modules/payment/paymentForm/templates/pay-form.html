@@ -1,8 +1,13 @@
 <div>
     <form name="PaymentForm" novalidate>
+        <div>
+           <label>Amount</label>
+           <input type="text" ng-model="amount" required/>
+           {{amount |  currency:undefined:2}}
+       </div>
        <div>
            <card-number value="card.number" label="Card Number" id="CardNumber"></card-number>
-            <card-brand value="card.number" type="card.paymentBrand"></card-brand>
+            <card-brand value="card.number" type="paymentBrand"></card-brand>
        </div>  
        <div>
              <card-expiry value="card.expiry"  label="Card Expiry" id="CardExpiry"></card-expiry>

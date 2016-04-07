@@ -9,7 +9,12 @@ export function cardBrand() {
 
         },
         link($scope) {
-            $scope.type = cardType($scope.value);
+            $scope.$watch('value', (newVal, oldVal) => {
+                if (newVal) {
+                    $scope.type = cardType(newVal.replace(/\s/g, ''));
+                }
+
+            });
         }
-    }
+    };
 }

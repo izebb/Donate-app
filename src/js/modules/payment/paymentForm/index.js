@@ -7,6 +7,6 @@ import paymentView from './paymentView';
 
 
 angular.module('DonateApp.paymentForm', ['Donate.cards'])
-    .factory('payment',['$http', paymentFactory] )
+    .factory('payment',['$http', '$httpParamSerializer', paymentFactory] )
     .directive('paymentView', [paymentView])
     .directive('payForm', [payForm]);
