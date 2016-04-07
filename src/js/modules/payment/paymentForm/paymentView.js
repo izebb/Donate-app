@@ -1,13 +1,13 @@
 import paymentViewController from "./controllers/paymentViewController.js";
 
 
-function paymentView() {
+function paymentView( $timeout) {
     
     return {
         restrict: 'AE',
         templateUrl: "payment/paymentForm/templates/payment-view.html",
         replace: true,
-        controller: ['$scope',paymentViewController]        ,
+        controller: ['$scope', 'payment', paymentViewController]        ,
     };
 }
 

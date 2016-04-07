@@ -1,4 +1,4 @@
 <div>
     <label for="{{id}}">{{label}}</label>
-    <input id="{{id}}" type="text" ng-model="value" numeric-only card-Expiry-formatter expiry-validator required>
+    <input id="{{id}}" placeholder="MM / YYYY" ng-pattern="/^(0[1-9]{1}|1[0-2]{1})\s/\s\d{4}$/" type="text" ng-model="value" numeric-only card-Expiry-formatter required>
 </div>

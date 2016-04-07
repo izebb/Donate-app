@@ -2,7 +2,7 @@
 import angular from 'angular';
 import {numericOnly} from './cardUtils';
 import {cardCvvFormatter, cvvValidator, cardCvv} from './cvv';
-import {expiryValidator, cardExpiry, cardExpiryFormatter} from './expiry';
+import { cardExpiry, cardExpiryFormatter} from './expiry';
 import {cardNumber, cardNumberValidator, cardNumberFormatter} from './cardNumber';
 import {cardBrand} from './cardBrand';
 
@@ -19,7 +19,6 @@ angular.module('cards.cardType', ['cards.utils'])
 
 
 angular.module('cards.expiry', ['cards.utils'])
-    .directive('expiryValidator', [expiryValidator])
     .directive('cardExpiryFormatter', [cardExpiryFormatter])
     .directive('cardExpiry', [cardExpiry]);
 

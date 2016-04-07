@@ -1,5 +1,8 @@
 <div>
-    <section>
+    <section ng-if="!isDonated">
        <pay-form></pay-form>
+    </section>
+    <section ng-if="isDonated">
+        <payment-message></payment-message>
     </section>
 </div>

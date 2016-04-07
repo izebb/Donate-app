@@ -1,6 +1,6 @@
 import params from "./params";
 
-function payment($http, $httpSerializer) {
+function payment($http, $httpSerializer, $localStorage) {
     'ngInject';
     
     let paymentFactory = {};
@@ -21,6 +21,15 @@ function payment($http, $httpSerializer) {
         });
 
     };
+    
+    paymentFactory.savePayment = (data) => {
+        $localStorage.paymentParams = JSON.stringify(data);
+    };
+    
+    paymentFactory.getPayment = () => {
+       return  JSON.parse($localStorage.paymentParams);
+    };
+       
 
     return paymentFactory;
 

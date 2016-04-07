@@ -1,9 +1,19 @@
 <div>
+    <div class="" ng-if="showError">
+        {{errorMsg}}
+    </div>
     <form name="PaymentForm" novalidate>
+        <div> 
+           <label>Currency</label>
+           <select ng-model="card.currency" required> 
+               <option value="USD">USD</option>
+               <option value="EUR">EUR</option>
+           </select>
+        </div>
         <div>
            <label>Amount</label>
-           <input type="text" ng-model="amount" required/>
-           {{amount |  currency:undefined:2}}
+           <input type="number" ng-model="amount" ng-max="100" min="0" max="100" ng-min="0" required/>
+           {{amount |  currency:card.currency:2}}
        </div>
        <div>
            <card-number value="card.number" label="Card Number" id="CardNumber"></card-number>
@@ -18,10 +28,10 @@
        </div>
        <div>
            <label>CardHolder</label>
-           <input type="text" ng-model="card.holder" required/>
+           <input type="text" ng-model="card.holder" ng-minlength="3" required/>
        </div>
        <div>
-           <button type="submit" ng-click="pay()" ng-disabled="PaymentForm.$invalid">Pay Now </button>
+           <button type="submit" ng-click="pay()" ng-disabled="PaymentForm.$invalid || submitting ">Pay Now </button>
        </div>
     </form>
 </div>

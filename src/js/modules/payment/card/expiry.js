@@ -3,30 +3,6 @@ import {
     validateExpiry } from 'stripe.js';
 
 
-export function expiryValidator() {
-    return {
-        require: '^ngModel',
-        link(scope, elm, attrs, ngModelCtrl) {
-            function validate(value) {
-                let [month, year] = value ?
-                    value.match(/^\D*(\d{1,2})(\D+)?(\d{1,4})?/) ?
-                        value.split('/') : [0, 0] : [0, 0];
-                let valid = value ? validateExpiry(month, year) : false;
-                ngModelCtrl.$setValidity('validateExpiry', valid);
-                return valid;
-            }
-
-            ngModelCtrl.$parsers.unshift(function(value) {
-                return validate(value) ? formatExpiry(value) : undefined;
-            });
-
-            ngModelCtrl.$formatters.unshift(function(value) {
-                validate(value);
-            });
-        }
-    };
-}
-
 export function cardExpiryFormatter() {
     'use strict';
     let expiryFormatter = function(e) {

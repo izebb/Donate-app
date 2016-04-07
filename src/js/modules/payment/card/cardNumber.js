@@ -12,7 +12,6 @@ export function cardNumberFormatter() {
     return {
         link(scope, element) {
             element.bind('keypress', cardFormatter);
-            element.bind('paste', cardFormatter);
         }
     };
 }

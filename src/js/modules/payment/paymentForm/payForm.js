@@ -1,7 +1,7 @@
 import paymentFormViewController from "./controllers/paymentFormViewController.js";
 
 
-function payForm() {
+function payForm(payment) {
 
     return {
         replace: true,

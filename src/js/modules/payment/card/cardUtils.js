@@ -15,6 +15,9 @@ export function numericOnly() {
         restrict: 'A',
         link(scope, element) {
             element.bind('keypress', restrictNumeric);
+            element.bind('paste', (e) => {
+                e.preventDefault();
+            });
         }
     };
 }
