@@ -1,2 +1,2 @@
 # Donate-app
-Microapp test question- Donate application using Pay on API
+Donate application using Pay on API
